@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: salon_dev
+  host: <%= ENV["PGHOST"] || "localhost" %>
+  port: <%= ENV["PGPORT"] || 5432 %>
+  username: <%= ENV["PGUSER"] || "postgres" %>
+  password: <%= ENV["PGPASSWORD"] %>
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: salon_test
+  host: <%= ENV["PGHOST"] || "localhost" %>
+  port: <%= ENV["PGPORT"] || 5432 %>
+  username: <%= ENV["PGUSER"] || "postgres" %>
+  password: <%= ENV["PGPASSWORD"] %>
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
